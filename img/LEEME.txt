@@ -1,0 +1,6 @@
+Carpeta privada, excluida de Git.
+Guarda aquí tus fotos originales y escribe la ruta en contenido-original.js,
+por ejemplo: "foto": "img/papa.jpg".
+Al cifrar, selecciona la carpeta img en la herramienta o elige cada foto por separado.
+Las fotos quedan comprimidas y cifradas dentro de contenido-cifrado.js.
+No subas esta carpeta al hosting ni la copies a la carpeta pública.

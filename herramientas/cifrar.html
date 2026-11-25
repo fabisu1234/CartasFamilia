@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Preparar mis cartas · Navidad para todos</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../config.js" defer></script>
+  <style>
+    .taller{max-width:850px;margin:55px auto;padding:0 22px 50px}.taller>h1{font:500 48px var(--serif);margin-bottom:8px}.taller>p{color:#c4cebf;line-height:1.8}.panel-taller{background:var(--crema);color:var(--tinta);color-scheme:light;border-radius:7px;padding:30px;margin-top:25px;box-shadow:0 15px 50px #0002}.panel-taller h2{font:600 27px var(--serif);margin:0 0 12px}.panel-taller p{line-height:1.7;font-size:12px;color:#69735f}.panel-taller label{display:block;font-size:12px;font-weight:600;margin:18px 0 8px}.panel-taller input[type=file]{font-size:12px;max-width:100%;padding:10px 0}.panel-taller input::file-selector-button{background:#e5eadd;color:var(--pino);border:1px solid #bdc5b1;border-radius:4px;padding:10px;margin-right:10px;cursor:pointer}.panel-taller textarea{width:100%;min-height:230px;background:#fffcf5;color:var(--tinta);border:1px solid var(--borde);border-radius:4px;padding:15px;font:13px/1.6 Consolas,monospace;resize:vertical}.panel-taller summary{font-size:13px;cursor:pointer;padding:15px 0;color:var(--pino)}.fotos-individuales{display:grid;grid-template-columns:1fr 1fr;gap:8px 25px}.fotos-individuales label{margin-bottom:0}.aviso-taller{border-left:3px solid var(--oro);padding:8px 15px;background:#d6b77911}.estado-taller{min-height:40px;font-size:13px;line-height:1.6;white-space:pre-line;color:#31573e}.estado-taller.error{color:var(--rojo)}.acciones-taller{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.acciones-taller>.boton-principal{width:auto;padding:0 24px}.descarga{display:inline-block;padding:15px 24px;background:var(--pino);color:var(--crema);text-decoration:none;border-radius:4px;font-size:13px}.pasos-nota{font-size:12px;color:#c8cdbc;line-height:1.8;margin-top:25px}.panel-taller code{font-size:12px;overflow-wrap:anywhere}@media(max-width:600px){.taller{margin-top:25px}.taller>h1{font-size:38px}.panel-taller{padding:23px}.fotos-individuales{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<main class="taller">
+  <a class="marca" href="../index.html"><span class="marca-icono">✳</span><span>navidad <em>para todos</em></span></a>
+  <p class="ceja" style="color:var(--oro);margin-top:35px">EL TALLER DE LOS REGALOS</p>
+  <h1>Palabras que solo son suyas.</h1>
+  <p>Prepara las cinco cartas en tu navegador. Esta herramienta no hace solicitudes de red ni envía tus archivos a ningún servidor.</p>
+  <form id="formulario-cifrar" class="panel-taller" autocomplete="off">
+    <h2>1. Trae tus palabras</h2>
+    <p>Selecciona <code>contenido-original.js</code> o pega su contenido completo. Conserva el objeto con comillas dobles. Los datos se leen como JSON, sin ejecutar código.</p>
+    <label for="archivo-original">Archivo con tus cinco cartas</label>
+    <input id="archivo-original" type="file" accept=".js,.json,text/plain,application/json">
+    <label for="original">Contenido de las cartas</label>
+    <textarea id="original" spellcheck="false" autocomplete="off" placeholder="Pega aquí el contenido de contenido-original.js" required></textarea>
+    <h2 style="margin-top:30px">2. Agrega los recuerdos</h2>
+    <p>Si escribiste una ruta como <code>img/papa.jpg</code>, selecciona la carpeta <code>img</code>. El navegador necesita que tú le des acceso. También puedes elegir una foto por persona aquí abajo; esa selección tiene prioridad sobre la ruta. Si no agregas fotos ni rutas, las cartas se preparan sin foto.</p>
+    <label for="carpeta-fotos">Carpeta de fotografías (opcional)</label>
+    <input id="carpeta-fotos" type="file" webkitdirectory multiple>
+    <details><summary>Elegir cada foto por separado</summary><div class="fotos-individuales">
+      <div><label for="foto-papa">Foto de Papá</label><input id="foto-papa" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>
+      <div><label for="foto-mama">Foto de Mamá</label><input id="foto-mama" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>
+      <div><label for="foto-hermana">Foto de Mana</label><input id="foto-hermana" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>
+      <div><label for="foto-novia">Foto de Marti ♡</label><input id="foto-novia" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>
+      <div><label for="foto-benja">Foto de Benja</label><input id="foto-benja" type="file" accept="image/jpeg,image/png,image/webp,image/gif"></div>
+    </div></details>
+    <p class="aviso-taller">Las fotos se convierten a JPEG, con un máximo de 900 px de ancho, 1400 px de alto y 300 KB por foto antes de base64. Se cifran junto con la carta. Revisa la orientación y el resultado antes de compartir.</p>
+    <h2 style="margin-top:30px">3. Cierra los sobres</h2>
+    <p>Se usa AES-GCM de 256 bits y PBKDF2 con SHA-256 y 310.000 iteraciones. Cada carta recibe un salt y un IV aleatorios nuevos. El archivo descargado no contiene las contraseñas.</p>
+    <div class="acciones-taller"><button class="boton-principal" id="cifrar" type="submit">Cifrar mis cinco cartas <span aria-hidden="true">↗</span></button><button class="boton-suave" id="limpiar" type="button">Limpiar datos</button></div>
+    <p class="estado-taller" id="estado" role="status" aria-live="polite" aria-atomic="true"></p>
+    <a class="descarga" id="descarga" download="contenido-cifrado.js" hidden>Descargar contenido-cifrado.js ↓</a>
+  </form>
+  <p class="pasos-nota">Reemplaza el archivo <code>contenido-cifrado.js</code> del sitio con la descarga, sin cambiarle el nombre. No subas <code>contenido-original.js</code> ni la carpeta <code>img</code>. Usa contraseñas largas, distintas y difíciles de adivinar; compártelas por separado.</p>
+</main>
+<script>
+'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+  const $ = id => document.getElementById(id);
+  const categorias = ['papa', 'mama', 'hermana', 'novia', 'benja'];
+  const nombres = { papa: 'Papá', mama: 'Mamá', hermana: 'Mana', novia: 'Marti ♡', benja: 'Benja' };
+  let urlDescarga = null;
+  let trabajando = false;
+  function estado(texto, error = false) {
+    $('estado').textContent = texto;
+    $('estado').classList.toggle('error', error);
+  }
+  function quitarDescarga() {
+    $('descarga').hidden = true;
+    $('descarga').removeAttribute('href');
+    if (urlDescarga) URL.revokeObjectURL(urlDescarga);
+    urlDescarga = null;
+  }
+  function leerOriginal(texto) {
+    // Solo se eliminan comentarios de línea al principio. No se usa eval ni Function.
+    const limpio = texto.replace(/^\uFEFF/, '').replace(/^(?:\s*\/\/[^\n]*(?:\n|$))*/, '').trim();
+    const coincidencia = limpio.match(/^(?:(?:const|let|var)\s+CONTENIDO_ORIGINAL\s*=\s*)?(\{[\s\S]*\})\s*;?\s*$/);
+    if (!coincidencia) throw new Error('Pega el objeto completo de contenido-original.js, conservando las comillas dobles.');
+    let datos;
+    try { datos = JSON.parse(coincidencia[1]); }
+    catch { throw new Error('No pude leer el objeto. Revisa comas, comillas dobles y saltos de párrafo escritos como \\n\\n. No agregues comentarios dentro de los datos.'); }
+    for (const categoria of categorias) {
+      const carta = datos[categoria];
+      if (!carta || ['titulo', 'texto', 'foto', 'pieFoto', 'firma', 'contrasena'].some(clave => typeof carta[clave] !== 'string')) throw new Error(`Revisa ${nombres[categoria]}: necesita titulo, texto, foto, pieFoto, firma y contrasena, todos entre comillas dobles.`);
+      if (!carta.titulo.trim() || !carta.texto.trim() || !carta.firma.trim() || !carta.contrasena.trim()) throw new Error(`A ${nombres[categoria]} le falta título, texto, firma o contraseña.`);
+      if (/^(?:[a-z]+:|\/|\\)|(?:^|[\\/])\.\.(?:[\\/]|$)/i.test(carta.foto)) throw new Error(`La foto de ${nombres[categoria]} debe ser una ruta local relativa, como img/papa.jpg.`);
+    }
+    return datos;
+  }
+  $('archivo-original').addEventListener('change', async () => {
+    quitarDescarga();
+    const archivo = $('archivo-original').files[0];
+    if (!archivo) return;
+    try {
+      if (archivo.size > 5 * 1024 * 1024) throw new Error('El archivo de texto es demasiado grande. Las fotos se seleccionan por separado.');
+      $('original').value = await archivo.text();
+      estado('Archivo cargado. Revisa las cartas y agrega tus fotos si corresponde.');
+    } catch (error) { estado(error.message, true); }
+  });
+  $('formulario-cifrar').addEventListener('input', quitarDescarga);
+  function buscarFoto(categoria, ruta) {
+    const directa = $(`foto-${categoria}`).files[0];
+    if (directa) return directa;
+    if (!ruta) return null;
+    const normalizada = ruta.replace(/\\/g, '/').replace(/^\.\//, '');
+    const archivos = Array.from($('carpeta-fotos').files);
+    const exactos = archivos.filter(archivo => archivo.webkitRelativePath === normalizada || archivo.webkitRelativePath.endsWith('/' + normalizada));
+    if (exactos.length === 1) return exactos[0];
+    const soloNombre = archivos.filter(archivo => archivo.name === normalizada.split('/').pop());
+    if (soloNombre.length === 1) return soloNombre[0];
+    throw new Error(`No pude identificar la foto de ${nombres[categoria]} (${ruta}). Selecciona la carpeta correcta o elige su foto por separado. Si no quieres foto, deja "foto": "".`);
+  }
+  const aBlob = (canvas, calidad) => new Promise((resolver, rechazar) => canvas.toBlob(blob => blob ? resolver(blob) : rechazar(new Error('No se pudo comprimir la foto.')), 'image/jpeg', calidad));
+  const aDataURL = blob => new Promise((resolver, rechazar) => {
+    const lector = new FileReader();
+    lector.onload = () => resolver(lector.result);
+    lector.onerror = () => rechazar(new Error('No se pudo leer la foto.'));
+    lector.readAsDataURL(blob);
+  });
+  async function comprimirFoto(archivo) {
+    if (!/\.(jpe?g|png|webp|gif)$/i.test(archivo.name)) throw new Error('Usa fotos JPG, PNG, WebP o GIF. Convierte las fotos HEIC antes de seleccionarlas.');
+    if (archivo.size > 40 * 1024 * 1024) throw new Error('Esa foto pesa más de 40 MB. Reduce su tamaño antes de seleccionarla.');
+    const url = URL.createObjectURL(archivo);
+    const imagen = new Image();
+    try {
+      await new Promise((resolver, rechazar) => {
+        imagen.onload = resolver;
+        imagen.onerror = () => rechazar(new Error(`No pude abrir ${archivo.name}. Prueba con otra foto JPG o PNG.`));
+        imagen.src = url;
+      });
+      const escala = Math.min(1, 900 / imagen.naturalWidth, 1400 / imagen.naturalHeight);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(imagen.naturalWidth * escala));
+      canvas.height = Math.max(1, Math.round(imagen.naturalHeight * escala));
+      const contexto = canvas.getContext('2d');
+      if (!contexto) throw new Error('Este navegador no permite preparar fotos. Prueba con Chrome, Edge, Firefox o Safari actualizado.');
+      function dibujar() {
+        contexto.fillStyle = '#faf5e9'; contexto.fillRect(0, 0, canvas.width, canvas.height);
+        contexto.drawImage(imagen, 0, 0, canvas.width, canvas.height);
+      }
+      dibujar();
+      let calidad = .88;
+      let blob = await aBlob(canvas, calidad);
+      while (blob.size > 300 * 1024) {
+        if (calidad > .48) calidad -= .08;
+        else { canvas.width = Math.max(1, Math.round(canvas.width * .85)); canvas.height = Math.max(1, Math.round(canvas.height * .85)); dibujar(); }
+        blob = await aBlob(canvas, calidad);
+      }
+      const resultado = await aDataURL(blob);
+      canvas.width = canvas.height = 0;
+      return resultado;
+    } finally { imagen.removeAttribute('src'); URL.revokeObjectURL(url); }
+  }
+  $('formulario-cifrar').addEventListener('submit', async evento => {
+    evento.preventDefault();
+    if (trabajando) return;
+    quitarDescarga();
+    if (!globalThis.crypto?.subtle) { estado('Este navegador necesita HTTPS o localhost para cifrar. Abre la herramienta en Chrome/Edge actualizado o usa el servidor local descrito en LEEME.md.', true); return; }
+    trabajando = true;
+    const controles = Array.from($('formulario-cifrar').querySelectorAll('input,textarea,button'));
+    controles.forEach(control => { control.disabled = true; });
+    $('formulario-cifrar').setAttribute('aria-busy', 'true');
+    let datos = null;
+    try {
+      datos = leerOriginal($('original').value);
+      const cifradas = {};
+      let clavesDebiles = false;
+      for (const [indice, categoria] of categorias.entries()) {
+        estado(`Preparando ${indice + 1} de ${categorias.length}: ${nombres[categoria]}…`);
+        const original = datos[categoria];
+        const archivoFoto = buscarFoto(categoria, original.foto);
+        const contenido = {
+          titulo: original.titulo, texto: original.texto,
+          foto: archivoFoto ? await comprimirFoto(archivoFoto) : '',
+          pieFoto: original.pieFoto, firma: original.firma
+        };
+        clavesDebiles ||= original.contrasena.length < 16 || original.contrasena.startsWith('cambiar-esta-clave-');
+        cifradas[categoria] = await RegaloCrypto.cifrar(contenido, original.contrasena);
+        contenido.foto = ''; contenido.texto = '';
+      }
+      const salida = '// Archivo público. Solo contiene bloques AES-GCM; generado en tu navegador.\nwindow.CONTENIDO_CIFRADO = Object.freeze(' + JSON.stringify(cifradas, null, 2) + ');\n';
+      urlDescarga = URL.createObjectURL(new Blob([salida], { type: 'text/javascript;charset=utf-8' }));
+      $('descarga').href = urlDescarga;
+      $('descarga').hidden = false;
+      estado('Tus cinco cartas están cifradas. Descarga el archivo y reemplaza el del sitio.' + (clavesDebiles ? '\nOjo: hay contraseñas de ejemplo o cortas. Cámbialas antes de compartir cartas reales.' : ''));
+    } catch (error) { estado(error.message || 'No se pudieron preparar las cartas. Revisa los datos e inténtalo otra vez.', true); }
+    finally {
+      datos = null;
+      trabajando = false;
+      controles.forEach(control => { control.disabled = false; });
+      $('formulario-cifrar').removeAttribute('aria-busy');
+    }
+  });
+  $('limpiar').addEventListener('click', () => {
+    if (trabajando) return;
+    quitarDescarga(); $('formulario-cifrar').reset();
+    estado('Datos retirados de la herramienta. Tus archivos originales siguen en tu equipo.');
+    $('archivo-original').focus();
+  });
+  window.addEventListener('pagehide', () => { quitarDescarga(); $('formulario-cifrar').reset(); });
+});
+</script>
+</body>
+</html>

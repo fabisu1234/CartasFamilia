@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#102d32">
+  <meta name="description" content="Un pequeño regalo, preparado con mucho cariño para esta Navidad.">
+  <meta property="og:title" content="Un regalo de Navidad 🎄">
+  <meta property="og:description" content="Hay regalos que se abren con el corazón. Uno de ellos te está esperando.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+  <title>Un regalo de Navidad 🎄</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E🎄%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="contenido-cifrado.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="nieve.js" defer></script>
+</head>
+<body>
+  <a class="saltar-contenido" href="#principal">Ir al regalo</a>
+  <canvas id="nieve" aria-hidden="true"></canvas>
+  <div class="halo halo-uno" aria-hidden="true"></div>
+  <div class="halo halo-dos" aria-hidden="true"></div>
+  <svg class="simbolos" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icono-estrella" viewBox="0 0 24 24"><path d="m12 2 2.9 6.2 6.8.9-5 4.8 1.2 6.8-5.9-3.3-5.9 3.3 1.2-6.8-5-4.8 6.8-.9Z"/></symbol>
+      <symbol id="icono-pino" viewBox="0 0 24 24"><path d="m12 2-6 7h3l-5 6h4l-4 5h16l-4-5h4l-5-6h3Z"/><path d="M12 20v3"/></symbol>
+      <symbol id="icono-corazon" viewBox="0 0 24 24"><path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z"/></symbol>
+      <symbol id="icono-regalo" viewBox="0 0 24 24"><path d="M3 8h18v4H3zM5 12v10h14V12M12 8v14M12 8C5 9 4 2 8 2c3 0 4 6 4 6Zm0 0c7 1 8-6 4-6-3 0-4 6-4 6Z"/></symbol>
+      <symbol id="icono-sobre" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
+      <symbol id="icono-ojo" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="icono-flecha" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+      <symbol id="arbol" viewBox="0 0 130 220"><path d="M59 174h13v42H59z" fill="#795744"/><path d="M65 6 28 69h19L13 124h25L0 187h130l-38-63h25L83 69h19Z" fill="currentColor"/><path d="m65 6-9 16h18Zm-37 63h19l-7 10H22Zm-15 55h25l-7 11H7Z" fill="#e4eadf" opacity=".65"/><path d="m65 2 3 7 8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1Z" fill="#cbaa68"/></symbol>
+      <symbol id="jengibre" viewBox="0 0 80 100"><path d="M25 29a18 18 0 1 1 30 0l19 8q12 11 0 19l-17-6 14 30q5 14-9 16L40 73 21 95Q6 98 7 84l15-34-15 6Q-5 50 3 40Z" fill="#bd8758" stroke="#e6b987" stroke-width="2"/><path d="m8 44 10 3M63 45l9-1M15 81l7 4m36-2 8-4M30 26q10 10 20 0" fill="none" stroke="#fff1d8" stroke-width="3" stroke-linecap="round"/><g fill="#fff1d8"><circle cx="32" cy="19" r="2"/><circle cx="48" cy="19" r="2"/></g><path d="m29 38 11 6 11-6v14l-11-6-11 6Z" fill="#8e3038"/><g fill="#fff1d8"><circle cx="40" cy="56" r="2"/><circle cx="40" cy="65" r="2"/></g></symbol>
+    </defs>
+  </svg>
+  <div class="guirnalda" aria-hidden="true"><svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M-20 2Q170 112 360 15Q540 108 720 13Q900 109 1080 14Q1260 107 1460 1"/></svg><div class="luces"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+  <header class="cabecera">
+    <a class="marca" href="./" aria-label="Navidad para todos, inicio"><span class="marca-icono">✳</span><span>navidad <em>para todos</em></span></a>
+    <span class="cabecera-nota">PEQUEÑOS REGALOS, GRANDES SENTIMIENTOS</span>
+    <button class="boton-nieve" id="pausar-nieve" type="button" aria-pressed="false"><span aria-hidden="true">❄</span><span id="etiqueta-nieve">Pausar nieve</span></button>
+  </header>
+  <main id="principal" tabindex="-1">
+    <section class="acceso" id="pantalla-acceso" aria-labelledby="titulo-acceso">
+      <div class="introduccion">
+        <p class="ceja"><span></span> FELIZ NAVIDAD 🎄</p>
+        <h1 id="titulo-acceso">Hay regalos<br> que se leen con<br> <em>el corazón.</em></h1>
+        <p class="bajada">No todo lo bonito cabe en una caja.<br>A veces, el mejor regalo son las palabras<br class="solo-escritorio"> que nos faltaba decir.</p>
+        <div class="dedicatoria"><span class="trazo" aria-hidden="true"></span><p>Un poquito de Navidad.<br><strong>Todo mi cariño.</strong></p><span class="estrella-dibujo" aria-hidden="true">✧</span></div>
+        <div class="sello-amor" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icono-corazon"/></svg><span>HECHO CON AMOR<br>SOLO PARA TI</span></div>
+      </div>
+      <div class="envoltorio-acceso">
+        <div class="esquina-ramita" aria-hidden="true">✧</div>
+        <section class="tarjeta-acceso" id="tarjeta-acceso" aria-labelledby="titulo-tarjeta">
+          <div class="cinta-regalo" aria-hidden="true"><span></span><i></i><b></b></div>
+          <div class="sello-sobre" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#icono-sobre"/></svg></div>
+          <p class="ceja tarjeta-ceja">UNA CARTA TE ESTÁ ESPERANDO</p>
+          <h2 id="titulo-tarjeta">Un regalo para ti</h2>
+          <p class="instrucciones">Elige quién eres e ingresa tu clave<br>para abrir tu regalo.</p>
+          <form id="formulario-acceso" autocomplete="off">
+            <fieldset class="categorias"><legend>Esta Navidad, soy…</legend>
+              <label class="categoria"><input type="radio" name="categoria" value="papa" required checked><span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-pino"/></svg>Papá</span></label>
+              <label class="categoria"><input type="radio" name="categoria" value="mama"><span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-estrella"/></svg>Mamá</span></label>
+              <label class="categoria"><input type="radio" name="categoria" value="hermana"><span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-regalo"/></svg>Hermana</span></label>
+              <label class="categoria"><input type="radio" name="categoria" value="novia"><span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-corazon"/></svg>Novia</span></label>
+            </fieldset>
+            <label class="etiqueta-clave" for="clave">Tu clave secreta</label>
+            <div class="campo-clave"><input id="clave" type="password" placeholder="La que te compartí con cariño" autocomplete="off" autocapitalize="off" spellcheck="false" required aria-describedby="mensaje-acceso"><button id="mostrar-clave" type="button" aria-label="Mostrar contraseña" aria-pressed="false" aria-controls="clave"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-ojo"/></svg></button></div>
+            <p id="mensaje-acceso" class="mensaje-acceso" role="status" aria-live="polite" aria-atomic="true"></p>
+            <button class="boton-principal" id="entrar" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-sobre"/></svg><span>Entrar</span><svg class="flecha" viewBox="0 0 24 24" aria-hidden="true"><use href="#icono-flecha"/></svg></button>
+          </form>
+          <p class="nota-privada"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>Una carta privada. Un cariño muy tuyo.</p>
+        </section>
+        <p class="nota-bajo-tarjeta"><span aria-hidden="true">✦</span> Preparado con tiempo, guardado con amor.</p>
+      </div>
+    </section>
+    <section id="pantalla-carta" class="pantalla-carta" hidden aria-label="Tu carta de Navidad">
+      <div class="cabecera-carta"><span class="ceja">DEL CORAZÓN AL PAPEL</span><button id="saltar-animacion" class="boton-suave" type="button">Saltar animación <span aria-hidden="true">↗</span></button></div>
+      <div id="sobre-animado" class="sobre-animado" aria-hidden="true"><div class="papel-sobre">Una carta para ti<span>con todo mi cariño</span></div><div class="bolsillo-sobre"></div><div class="solapa-sobre"></div><div class="sello-cera">♥</div></div>
+      <article id="carta" class="carta" hidden aria-labelledby="titulo-carta">
+        <div class="adorno-carta" aria-hidden="true">✧ &nbsp; ❋ &nbsp; ✧</div><p class="ceja">UN REGALO DE NAVIDAD</p>
+        <h1 id="titulo-carta" tabindex="-1"></h1>
+        <div class="separador-carta" aria-hidden="true"><span>♥</span></div>
+        <div id="foto-antes"></div>
+        <div id="texto-carta" class="texto-carta" aria-label="Carta personal"></div>
+        <p id="estado-lectura" class="solo-lectores" role="status" aria-live="polite"></p>
+        <div id="foto-despues"></div>
+        <div id="final-carta" class="final-carta" hidden><p class="firma" id="firma"></p><span class="corazon-final" aria-hidden="true">♥</span><p class="recuerdo">Las palabras se quedan. El cariño, también.</p><div class="acciones-carta"><button id="repetir-animacion" class="boton-suave" type="button">Volver a leer con animación</button><button id="cerrar-sesion" class="boton-suave" type="button">Cerrar sesión <span aria-hidden="true">↗</span></button></div></div>
+      </article>
+      <button id="cerrar-durante" class="boton-salir" type="button">Cerrar sesión</button>
+    </section>
+    <noscript><p class="aviso-noscript">Activa JavaScript para abrir tu carta de forma privada en este navegador.</p></noscript>
+  </main>
+  <footer class="pie"><span aria-hidden="true">✧</span> Que esta Navidad nos encuentre cerquita. <span aria-hidden="true">✧</span></footer>
+  <div class="paisaje" aria-hidden="true"><div class="bosque bosque-izq"><svg class="arbol arbol-uno"><use href="#arbol"/></svg><svg class="arbol arbol-dos"><use href="#arbol"/></svg><svg class="galleta"><use href="#jengibre"/></svg></div><div class="bosque bosque-der"><svg class="galleta"><use href="#jengibre"/></svg><svg class="arbol arbol-tres"><use href="#arbol"/></svg><svg class="arbol arbol-cuatro"><use href="#arbol"/></svg></div><div class="nieve-suelo"></div></div>
+</body>
+</html>
